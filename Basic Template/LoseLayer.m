@@ -7,6 +7,7 @@
 //
 
 #import "LoseLayer.h"
+#import "MainMenuLayer.h"
 
 @implementation LoseLayer
 
@@ -18,6 +19,12 @@
 	return scene;
 }
 
+- (void)switchScene:(ccTime)dt
+{
+    CCTransitionFlipY *transition = [CCTransitionFlipY transitionWithDuration:1.0 scene:[MainMenuLayer node]];
+    [[CCDirector sharedDirector] replaceScene:transition];
+}
+
 -(id) init
 {
 	if ((self = [super init])) {
@@ -25,6 +32,7 @@
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		label.position = ccp(size.width / 2, size.height / 2);
 		[self addChild:label];
+        [self schedule:@selector(switchScene:) interval:2.0f];
 	}
 	return self;
 }
