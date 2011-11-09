@@ -2,7 +2,7 @@
 //  AppDelegate.m
 //  Basic Template
 //
-//  Created by Jonathan McAllister on 09/11/2011.
+//  Created by Joony on 09/11/2011.
 //  Copyright __MyCompanyName__ 2011. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 #import "AppDelegate.h"
 #import "GameConfig.h"
-#import "HelloWorldLayer.h"
+#import "TrailersLayer.h"
 #import "RootViewController.h"
 
 @implementation AppDelegate
@@ -110,7 +110,7 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-	[[CCDirector sharedDirector] runWithScene: [HelloWorldLayer scene]];
+	[[CCDirector sharedDirector] runWithScene: [TrailersLayer scene]];
 }
 
 
