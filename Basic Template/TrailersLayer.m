@@ -22,7 +22,7 @@
 - (void)switchScene:(ccTime)dt
 {
     [self unschedule:@selector(switchScene:)];
-    CCTransitionFlipY *transition = [CCTransitionFlipY transitionWithDuration:1.0 scene:[MainMenuLayer node]];
+    CCTransitionFlipY *transition = [CCTransitionFlipY transitionWithDuration:1.0 scene:[MainMenuLayer scene]];
     [[CCDirector sharedDirector] replaceScene:transition];
 }
 

@@ -128,6 +128,7 @@
 		F71A8EBD146A8DA500FEB601 /* CreditsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F71A8EBC146A8DA500FEB601 /* CreditsLayer.m */; };
 		F71A8EC0146A8E1D00FEB601 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F71A8EBF146A8E1D00FEB601 /* GameLayer.m */; };
 		F71A8EC3146AA24800FEB601 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F71A8EC2146AA24800FEB601 /* IntroLayer.m */; };
+		F71A8ED7146AB87600FEB601 /* GameHUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F71A8ED6146AB87600FEB601 /* GameHUDLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -378,6 +379,8 @@
 		F71A8EBF146A8E1D00FEB601 /* GameLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
 		F71A8EC1146AA24800FEB601 /* IntroLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		F71A8EC2146AA24800FEB601 /* IntroLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		F71A8ED5146AB87600FEB601 /* GameHUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHUDLayer.h; sourceTree = "<group>"; };
+		F71A8ED6146AB87600FEB601 /* GameHUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHUDLayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -818,6 +821,8 @@
 				F71A8ECE146AA50600FEB601 /* Resources */,
 				F71A8EBE146A8E1D00FEB601 /* GameLayer.h */,
 				F71A8EBF146A8E1D00FEB601 /* GameLayer.m */,
+				F71A8ED5146AB87600FEB601 /* GameHUDLayer.h */,
+				F71A8ED6146AB87600FEB601 /* GameHUDLayer.m */,
 			);
 			name = Game;
 			sourceTree = "<group>";
@@ -1089,6 +1094,7 @@
 				F71A8EBD146A8DA500FEB601 /* CreditsLayer.m in Sources */,
 				F71A8EC0146A8E1D00FEB601 /* GameLayer.m in Sources */,
 				F71A8EC3146AA24800FEB601 /* IntroLayer.m in Sources */,
+				F71A8ED7146AB87600FEB601 /* GameHUDLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

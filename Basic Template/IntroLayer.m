@@ -22,11 +22,11 @@
 - (void)switchScene:(ccTime)dt
 {
     [self unschedule:@selector(switchScene:)];
-    CCTransitionFlipY *transition = [CCTransitionFlipY transitionWithDuration:1.0 scene:[GameLayer node]];
+    CCTransitionFlipY *transition = [CCTransitionFlipY transitionWithDuration:1.0 scene:[GameLayer scene]];
     [[CCDirector sharedDirector] replaceScene:transition];
 }
 
--(id) init
+- (id)init
 {
 	if ((self = [super init])) {
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Intro" fontName:@"Marker Felt" fontSize:64];

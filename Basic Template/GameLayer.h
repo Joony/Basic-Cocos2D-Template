@@ -7,10 +7,14 @@
 //
 
 #import "cocos2d.h"
+#import "GameHUDLayer.h"
 
 @interface GameLayer : CCLayer
 {
+    GameHUDLayer *_hud;
 }
+
+@property (nonatomic, retain) GameHUDLayer *hud;
 
 + (CCScene *)scene;
 

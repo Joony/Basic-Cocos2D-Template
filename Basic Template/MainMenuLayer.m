@@ -21,7 +21,7 @@
 
 - (void)startGame:(CCMenuItem *)menuItem 
 {
-	CCTransitionFlipY *transition = [CCTransitionFlipY transitionWithDuration:1.0 scene:[IntroLayer node]];
+	CCTransitionFlipY *transition = [CCTransitionFlipY transitionWithDuration:1.0 scene:[IntroLayer scene]];
     [[CCDirector sharedDirector] replaceScene:transition];
 }
 
@@ -33,12 +33,12 @@
 	[self addChild:mainMenu];
 }
 
--(id) init
+- (id)init
 {
 	if ((self = [super init])) {
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Main Menu" fontName:@"Marker Felt" fontSize:64];
 		CGSize size = [[CCDirector sharedDirector] winSize];
-		label.position = ccp(size.width / 2, size.height - 32);
+		label.position = ccp(size.width / 2, size.height - label.contentSize.height / 2);
 		[self addChild:label];
         [self setUpMenus];
 	}
