@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="17" height="14" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="cannonfodder1_tiles_jungle" tilewidth="16" tileheight="16" spacing="1" margin="1">
+  <image source="cannonfodder1_tiles_jungle.png" trans="dc2eff" width="749" height="171"/>
+ </tileset>
+ <tileset firstgid="441" name="cannonfodder1_sprites_jungle1" tilewidth="16" tileheight="16">
+  <image source="cannonfodder1_sprites_jungle1.png" trans="dc2eff" width="320" height="337"/>
+ </tileset>
+ <tileset firstgid="861" name="cannonfodder1_tiles_grass" tilewidth="16" tileheight="16" spacing="1" margin="1">
+  <image source="cannonfodder1_tiles_grass.png" trans="dc2eff" width="749" height="171"/>
+ </tileset>
+ <tileset firstgid="1301" name="meta" tilewidth="16" tileheight="16" spacing="1" margin="1">
+  <image source="meta.png" trans="dc2eff" width="35" height="18"/>
+ </tileset>
+ <layer name="grass" width="17" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgQAUiUIzMxoexAWL04TKDVL3o5lCiH9ktxPoV3e24woJYQKp6eppBjj9whSkxgBFNPaXpD58cobhHN4MYtbjsxgVIyWcAV8AYKrgDAAA=
+  </data>
+ </layer>
+ <layer name="background" width="17" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA32SzSpFURTHV+rWxdVlQozMFDHATKHLiamvq5Ch66MkZoiBuet6A8U78AbKxyu4lPfwW521O6vdOf71a+2zzvpq71USkWcYgBokkmpXMlWhx87dzl+BQ8t/hzGoS756zY7k/Puw/HbUU9VXUC9I63XCt+Xr/OV/ehXVCGrBfUHcD9zBnLMaPw+fVucV9mDF+X9h1sWfw4XFrJsdggOYtF7qf4QJ8+s9H8Ga/buFJqzCvovdcPOqX9+mZjWu4Nr8DevbsHnj2KAHSd8mvKve8wK8QQc8We+SZHsQ74DO1Xbfi7AJX9APL5Y7KNkeJC6+anMFdUV1RiXbofGoV1DFzTUF0zkxYYcuo/5ep2aXYFnS942V5OTPuPMNHMOJWa05XNAvaAu2YQfO4A+uDLeTuAMAAA==
+  </data>
+ </layer>
+ <layer name="sprite" width="17" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWjYBgDJkyhf4wMDP8ZiTdCBIsZAw0AzJdfLLgDAAA=
+  </data>
+ </layer>
+ <layer name="meta" width="17" height="14" opacity="0.53">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAxNlZWAQRcIwgMzGB0Rx6CcFUKIX2QxqAEJuQfcvtnDDFR649BJSS4xeWptBrj9g6skJS2LMwGYOPnWUAvSwJFUfsl5K8g4AevUUHrgDAAA=
+  </data>
+ </layer>
+ <layer name="All grass tiles" width="17" height="14" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAw3DQ3iQAQAA0L+2XIdsHZaWccjWYXFptWp2tWwcsmsd4mr5kK1Dtg7ZOmTrEN77vhcdEgSDHeJQY4w1zngTTDTJZFNMNc10M8x0pKMc7RjHOs7xTnCik5zsFKc6zenOcKaznO0c5zrP+S5woYtc7BKXuszlZrnCla5ytWtc6zqzXe8Gc9zoJje7xa1uc7s73Okud7vHve5zvwc86CEPe8SjHvO4JzzpKU97xrOe87wXvOglL3vFq17zuje86S1ve8e73vO+D3zoIx/7xKc+87kvfOkrX/vGt77zvR/86Cc/+8WvfvO7P/zpL3/7x7/+MwgNglzmNsRQ85jXfOa3gAUtZGGLWNRiFreEJS1lactY1nKWt4IVrWRlq1jVMKtZ3RrWtJbh1raOda1nfRvY0EY2tolNbWZzW9jSVra2jW1tZ3s72NFOdraLXY2wm93tYU972dtI+9jXfvZ3gFEOdJDRxhhrnPEmmGiSyaaYaprpZjjM4Y4w0/+5bIOquAMAAA==
+  </data>
+ </layer>
+ <layer name="All jungle tiles" width="17" height="14" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAy3ORXgOAACA4X9YN6ZjbA6666JzOGzT7aC7DrrroC0MB9PNgel20F0H3XXQHe/B83zv/QsKBAL5yE8BggkhlDDCiSCSKKKJIZY44kmgCEUpRnFKUJJSlKYMZUmkHOVJIpkKVKQSlalCVapRnRrUpBa1qUNd6lGfBjT8/9GIxjShKc1oTgta0orWtKEtKbSjPR1IJY10OtKJznShK93oTg960ove9KEv/ejPAAYyiMEMYSjDGM4IRjKK0YxhLOMYzwQmMonJTGEq05jODGYyi9nMYS7zmM8CFrKIxSxhKctYzgoyyCSLbFaSwypWs4a15LKO9WxgI5vYzBa2so3t7GAnu9jNHvayjzz2c4CDHOIwRzjKMY5zgpOc4jRnOMs5znOBi1ziMle4yjWuc4Ob3OI2d7jLPe7zgIc84jFPeMoznvOCl7ziNW94yzve84GPfOIzX/jKN77zg5/84jd/+EsgSAQTQihhhBNBJFFEE0MsccRTkEIUJoF/+wb9W7gDAAA=
+  </data>
+ </layer>
+</map>

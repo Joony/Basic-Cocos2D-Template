@@ -12,9 +12,20 @@
 @interface GameLayer : CCLayer
 {
     GameHUDLayer *_hud;
+    
+    CCTMXTiledMap *_tileMap;
+    CCTMXLayer *_grass;
+    CCTMXLayer *_background;
+    CCTMXLayer *_sprite;
+    CCTMXLayer *_meta;
 }
 
 @property (nonatomic, retain) GameHUDLayer *hud;
+@property (nonatomic, retain) CCTMXTiledMap *tileMap;
+@property (nonatomic, retain) CCTMXLayer *grass;
+@property (nonatomic, retain) CCTMXLayer *background;
+@property (nonatomic, retain) CCTMXLayer *sprite;
+@property (nonatomic, retain) CCTMXLayer *meta;
 
 + (CCScene *)scene;
 

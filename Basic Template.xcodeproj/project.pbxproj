@@ -129,6 +129,11 @@
 		F71A8EC0146A8E1D00FEB601 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F71A8EBF146A8E1D00FEB601 /* GameLayer.m */; };
 		F71A8EC3146AA24800FEB601 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F71A8EC2146AA24800FEB601 /* IntroLayer.m */; };
 		F71A8ED7146AB87600FEB601 /* GameHUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F71A8ED6146AB87600FEB601 /* GameHUDLayer.m */; };
+		F71A8EE5146BF28A00FEB601 /* CannonFodder.tmx in Resources */ = {isa = PBXBuildFile; fileRef = F71A8EE4146BF28A00FEB601 /* CannonFodder.tmx */; };
+		F71A8EE7146BF2FA00FEB601 /* cannonfodder1_tiles_jungle.png in Resources */ = {isa = PBXBuildFile; fileRef = F71A8EE6146BF2FA00FEB601 /* cannonfodder1_tiles_jungle.png */; };
+		F71A8EE9146BF31500FEB601 /* cannonfodder1_sprites_jungle1.png in Resources */ = {isa = PBXBuildFile; fileRef = F71A8EE8146BF31500FEB601 /* cannonfodder1_sprites_jungle1.png */; };
+		F71A8EEB146BF32100FEB601 /* cannonfodder1_tiles_grass.png in Resources */ = {isa = PBXBuildFile; fileRef = F71A8EEA146BF32100FEB601 /* cannonfodder1_tiles_grass.png */; };
+		F71A8EED146BF38000FEB601 /* meta.png in Resources */ = {isa = PBXBuildFile; fileRef = F71A8EEC146BF38000FEB601 /* meta.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -381,6 +386,11 @@
 		F71A8EC2146AA24800FEB601 /* IntroLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		F71A8ED5146AB87600FEB601 /* GameHUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHUDLayer.h; sourceTree = "<group>"; };
 		F71A8ED6146AB87600FEB601 /* GameHUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHUDLayer.m; sourceTree = "<group>"; };
+		F71A8EE4146BF28A00FEB601 /* CannonFodder.tmx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = CannonFodder.tmx; sourceTree = "<group>"; };
+		F71A8EE6146BF2FA00FEB601 /* cannonfodder1_tiles_jungle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cannonfodder1_tiles_jungle.png; sourceTree = "<group>"; };
+		F71A8EE8146BF31500FEB601 /* cannonfodder1_sprites_jungle1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cannonfodder1_sprites_jungle1.png; sourceTree = "<group>"; };
+		F71A8EEA146BF32100FEB601 /* cannonfodder1_tiles_grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cannonfodder1_tiles_grass.png; sourceTree = "<group>"; };
+		F71A8EEC146BF38000FEB601 /* meta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meta.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -881,6 +891,11 @@
 		F71A8ECE146AA50600FEB601 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F71A8EEC146BF38000FEB601 /* meta.png */,
+				F71A8EEA146BF32100FEB601 /* cannonfodder1_tiles_grass.png */,
+				F71A8EE8146BF31500FEB601 /* cannonfodder1_sprites_jungle1.png */,
+				F71A8EE6146BF2FA00FEB601 /* cannonfodder1_tiles_jungle.png */,
+				F71A8EE4146BF28A00FEB601 /* CannonFodder.tmx */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -980,6 +995,11 @@
 				F71A8D5C146A829200FEB601 /* Icon.png in Resources */,
 				F71A8D5E146A829200FEB601 /* Icon@2x.png in Resources */,
 				F71A8D61146A829200FEB601 /* iTunesArtwork in Resources */,
+				F71A8EE5146BF28A00FEB601 /* CannonFodder.tmx in Resources */,
+				F71A8EE7146BF2FA00FEB601 /* cannonfodder1_tiles_jungle.png in Resources */,
+				F71A8EE9146BF31500FEB601 /* cannonfodder1_sprites_jungle1.png in Resources */,
+				F71A8EEB146BF32100FEB601 /* cannonfodder1_tiles_grass.png in Resources */,
+				F71A8EED146BF38000FEB601 /* meta.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

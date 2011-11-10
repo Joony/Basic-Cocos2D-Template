@@ -15,6 +15,11 @@
 @implementation GameLayer
 
 @synthesize hud = _hud;
+@synthesize tileMap = _tileMap;
+@synthesize grass = _grass;
+@synthesize background = _background;
+@synthesize sprite = _sprite;
+@synthesize meta = _meta;
 
 + (CCScene *)scene
 {
@@ -58,6 +63,16 @@
 - (id)init
 {
 	if ((self = [super init])) {
+        
+        self.tileMap = [CCTMXTiledMap tiledMapWithTMXFile:@"CannonFodder.tmx"];
+        self.grass = [_tileMap layerNamed:@"grass"];
+        self.background = [_tileMap layerNamed:@"background"];
+        self.sprite = [_tileMap layerNamed:@"sprite"];
+        self.meta = [_tileMap layerNamed:@"meta"];
+        _meta.visible = NO;
+        [_tileMap setScale:2.0f];
+        [self addChild:_tileMap z:-1];
+        
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Game" fontName:@"Marker Felt" fontSize:64];
 		CGSize size = [[CCDirector sharedDirector] winSize];
 		label.position = ccp(size.width / 2, size.height - label.contentSize.height / 2);
@@ -70,6 +85,11 @@
 - (void) dealloc
 {
     self.hud = nil;
+    self.tileMap = nil;
+    self.grass = nil;
+    self.background = nil;
+    self.sprite = nil;
+    self.meta = nil;
 	[super dealloc];
 }
 
