@@ -15,6 +15,8 @@
 @implementation GameLayer
 
 @synthesize hud = _hud;
+@synthesize label = _label;
+@synthesize motionManager = _motionManager;
 
 + (CCScene *)scene
 {
@@ -55,14 +57,37 @@
 	[self addChild:mainMenu];
 }
 
+- (void)update:(ccTime)delta
+{
+    CMDeviceMotion *currentDeviceMotion = _motionManager.deviceMotion;
+    CMAttitude *currentAttitude = currentDeviceMotion.attitude;
+    float roll = currentAttitude.roll;
+    float pitch = currentAttitude.pitch;
+    float yaw = currentAttitude.yaw;
+    [_label setString:[NSString stringWithFormat:@"roll:%.2f pitch:%.2f yaw:%.2f", roll, pitch, yaw]];
+    _label.rotation = CC_RADIANS_TO_DEGREES(pitch);
+}
+
 - (id)init
 {
 	if ((self = [super init])) {
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Game" fontName:@"Marker Felt" fontSize:64];
+		CCLabelTTF *title = [CCLabelTTF labelWithString:@"Game" fontName:@"Marker Felt" fontSize:64];
 		CGSize size = [[CCDirector sharedDirector] winSize];
-		label.position = ccp(size.width / 2, size.height - label.contentSize.height / 2);
-		[self addChild:label];
-        [self setUpMenus];
+		title.position = ccp(size.width / 2, size.height - title.contentSize.height / 2);
+		[self addChild:title];
+        //[self setUpMenus];
+        
+        self.label = [CCLabelTTF labelWithString:@"This Way Up" fontName:@"Marker Felt" fontSize:28];
+        _label.position = ccp(size.width / 2, size.height / 2);
+        [self addChild:_label];
+        
+        self.motionManager = [[[CMMotionManager alloc] init] autorelease];
+        _motionManager.deviceMotionUpdateInterval = 1.0 / 60.0;
+        if (_motionManager.isDeviceMotionAvailable) {
+            [_motionManager startDeviceMotionUpdates];
+        }
+        [self scheduleUpdate];
+        
 	}
 	return self;
 }
@@ -70,6 +95,8 @@
 - (void) dealloc
 {
     self.hud = nil;
+    self.label = nil;
+    self.motionManager = nil;
 	[super dealloc];
 }
 

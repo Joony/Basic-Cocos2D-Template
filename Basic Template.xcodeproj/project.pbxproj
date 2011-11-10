@@ -129,6 +129,7 @@
 		F71A8EC0146A8E1D00FEB601 /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F71A8EBF146A8E1D00FEB601 /* GameLayer.m */; };
 		F71A8EC3146AA24800FEB601 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F71A8EC2146AA24800FEB601 /* IntroLayer.m */; };
 		F71A8ED7146AB87600FEB601 /* GameHUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F71A8ED6146AB87600FEB601 /* GameHUDLayer.m */; };
+		F71A8EF5146C129900FEB601 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71A8EF2146C0F9F00FEB601 /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -381,6 +382,7 @@
 		F71A8EC2146AA24800FEB601 /* IntroLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
 		F71A8ED5146AB87600FEB601 /* GameHUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHUDLayer.h; sourceTree = "<group>"; };
 		F71A8ED6146AB87600FEB601 /* GameHUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHUDLayer.m; sourceTree = "<group>"; };
+		F71A8EF2146C0F9F00FEB601 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -388,6 +390,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F71A8EF5146C129900FEB601 /* CoreMotion.framework in Frameworks */,
 				F71A8D3E146A829200FEB601 /* QuartzCore.framework in Frameworks */,
 				F71A8D40146A829200FEB601 /* OpenGLES.framework in Frameworks */,
 				F71A8D42146A829200FEB601 /* OpenAL.framework in Frameworks */,
@@ -422,6 +425,7 @@
 		F71A8D3C146A829200FEB601 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F71A8EF2146C0F9F00FEB601 /* CoreMotion.framework */,
 				F71A8D3D146A829200FEB601 /* QuartzCore.framework */,
 				F71A8D3F146A829200FEB601 /* OpenGLES.framework */,
 				F71A8D41146A829200FEB601 /* OpenAL.framework */,
@@ -1188,6 +1192,7 @@
 				F71A8EAD146A829400FEB601 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

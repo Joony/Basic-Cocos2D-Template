@@ -8,13 +8,18 @@
 
 #import "cocos2d.h"
 #import "GameHUDLayer.h"
+#import <CoreMotion/CoreMotion.h>
 
 @interface GameLayer : CCLayer
 {
     GameHUDLayer *_hud;
+    CCLabelTTF *_label;
+    CMMotionManager *_motionManager;
 }
 
 @property (nonatomic, retain) GameHUDLayer *hud;
+@property (nonatomic, retain) CCLabelTTF *label;
+@property (nonatomic, retain) CMMotionManager *motionManager;
 
 + (CCScene *)scene;
 
