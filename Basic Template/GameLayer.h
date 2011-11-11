@@ -15,11 +15,24 @@
     GameHUDLayer *_hud;
     CCLabelTTF *_label;
     CMMotionManager *_motionManager;
+    CMAttitude *_referenceFrame;
+    
+    NSMutableArray *_accelerationFilter;
+    float _maxAcceleration;
+    float _minAcceleration;
+    float _restAcceleration;
+    float _accel[3];
+    float kFilteringFactor;
+    float _distance;
+    float _velocity;
 }
 
 @property (nonatomic, retain) GameHUDLayer *hud;
 @property (nonatomic, retain) CCLabelTTF *label;
 @property (nonatomic, retain) CMMotionManager *motionManager;
+@property (nonatomic, retain) CMAttitude *referenceFrame;
+
+@property (nonatomic, retain) NSMutableArray *accelerationFilter;
 
 + (CCScene *)scene;
 
