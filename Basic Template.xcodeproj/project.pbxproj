@@ -130,6 +130,9 @@
 		F71A8EC3146AA24800FEB601 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F71A8EC2146AA24800FEB601 /* IntroLayer.m */; };
 		F71A8ED7146AB87600FEB601 /* GameHUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F71A8ED6146AB87600FEB601 /* GameHUDLayer.m */; };
 		F71A8EF5146C129900FEB601 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71A8EF2146C0F9F00FEB601 /* CoreMotion.framework */; };
+		F7CD6BCC147412F100C00759 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7CD6BCB147412F100C00759 /* CoreAudio.framework */; };
+		F7CD6BD21474195400C00759 /* bg_music_loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F7CD6BD11474195300C00759 /* bg_music_loop.mp3 */; };
+		F7CD6BD614741DBB00C00759 /* buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F7CD6BD514741DBB00C00759 /* buzzer.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -383,6 +386,9 @@
 		F71A8ED5146AB87600FEB601 /* GameHUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHUDLayer.h; sourceTree = "<group>"; };
 		F71A8ED6146AB87600FEB601 /* GameHUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHUDLayer.m; sourceTree = "<group>"; };
 		F71A8EF2146C0F9F00FEB601 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		F7CD6BCB147412F100C00759 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		F7CD6BD11474195300C00759 /* bg_music_loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg_music_loop.mp3; sourceTree = "<group>"; };
+		F7CD6BD514741DBB00C00759 /* buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buzzer.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,12 +396,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F71A8D46146A829200FEB601 /* AVFoundation.framework in Frameworks */,
+				F7CD6BCC147412F100C00759 /* CoreAudio.framework in Frameworks */,
+				F71A8D44146A829200FEB601 /* AudioToolbox.framework in Frameworks */,
+				F71A8D42146A829200FEB601 /* OpenAL.framework in Frameworks */,
 				F71A8EF5146C129900FEB601 /* CoreMotion.framework in Frameworks */,
 				F71A8D3E146A829200FEB601 /* QuartzCore.framework in Frameworks */,
 				F71A8D40146A829200FEB601 /* OpenGLES.framework in Frameworks */,
-				F71A8D42146A829200FEB601 /* OpenAL.framework in Frameworks */,
-				F71A8D44146A829200FEB601 /* AudioToolbox.framework in Frameworks */,
-				F71A8D46146A829200FEB601 /* AVFoundation.framework in Frameworks */,
 				F71A8D48146A829200FEB601 /* UIKit.framework in Frameworks */,
 				F71A8D4A146A829200FEB601 /* Foundation.framework in Frameworks */,
 				F71A8D4C146A829200FEB601 /* CoreGraphics.framework in Frameworks */,
@@ -408,6 +415,7 @@
 		F71A8D2E146A829200FEB601 = {
 			isa = PBXGroup;
 			children = (
+				F7CD6BCB147412F100C00759 /* CoreAudio.framework */,
 				F71A8D4D146A829200FEB601 /* Basic Template */,
 				F71A8D3C146A829200FEB601 /* Frameworks */,
 				F71A8D3A146A829200FEB601 /* Products */,
@@ -885,6 +893,8 @@
 		F71A8ECE146AA50600FEB601 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F7CD6BD514741DBB00C00759 /* buzzer.mp3 */,
+				F7CD6BD11474195300C00759 /* bg_music_loop.mp3 */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -984,6 +994,8 @@
 				F71A8D5C146A829200FEB601 /* Icon.png in Resources */,
 				F71A8D5E146A829200FEB601 /* Icon@2x.png in Resources */,
 				F71A8D61146A829200FEB601 /* iTunesArtwork in Resources */,
+				F7CD6BD21474195400C00759 /* bg_music_loop.mp3 in Resources */,
+				F7CD6BD614741DBB00C00759 /* buzzer.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1120,7 +1132,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1135,7 +1147,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};

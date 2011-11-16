@@ -9,6 +9,8 @@
 #import "cocos2d.h"
 #import "GameHUDLayer.h"
 #import <CoreMotion/CoreMotion.h>
+#import "CocosDenshion.h"
+#import "SimpleAudioEngine.h"
 
 @interface GameLayer : CCLayer
 {
@@ -25,6 +27,10 @@
     float kFilteringFactor;
     float _distance;
     float _velocity;
+    
+    BOOL _bang;
+    CDSoundEngine *_soundEngine;
+    ALuint _bg;
 }
 
 @property (nonatomic, retain) GameHUDLayer *hud;

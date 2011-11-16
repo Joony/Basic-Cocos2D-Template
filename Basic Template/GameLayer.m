@@ -6,11 +6,17 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import <AVFoundation/AVFoundation.h>
+#import <CoreAudio/CoreAudioTypes.h>
+
 #import "GameLayer.h"
 #import "GameHUDLayer.h"
 #import "WinLayer.h"
 #import "LoseLayer.h"
 #import "MainMenuLayer.h"
+#import "CocosDenshion.h"
+#import "SimpleAudioEngine.h"
+
 
 @implementation GameLayer
 
@@ -80,6 +86,7 @@
     CMDeviceMotion *currentDeviceMotion = _motionManager.deviceMotion;
     CMAttitude *currentAttitude = currentDeviceMotion.attitude;
     CMAcceleration currentAcceleration = currentDeviceMotion.userAcceleration;
+    
     if (_referenceFrame) {
         [currentAttitude multiplyByInverseOfAttitude:_referenceFrame];
     } else {
@@ -89,7 +96,34 @@
     float pitch = currentAttitude.pitch;
     float yaw = currentAttitude.yaw;
     
-    float totalAcceleration = sqrtf((currentAcceleration.x * currentAcceleration.x + currentAcceleration.y * currentAcceleration.y + currentAcceleration.z * currentAcceleration.z));
+    float magnitude = sqrtf(currentAcceleration.x * currentAcceleration.x + currentAcceleration.y * currentAcceleration.y + currentAcceleration.z * currentAcceleration.z);
+    
+    _accel[0] = currentAcceleration.x * kFilteringFactor + _accel[0] * (1.0f - kFilteringFactor);
+    _accel[1] = currentAcceleration.y * kFilteringFactor + _accel[1] * (1.0f - kFilteringFactor);
+    _accel[2] = currentAcceleration.z * kFilteringFactor + _accel[2] * (1.0f - kFilteringFactor);
+    float resultX = currentAcceleration.x - _accel[0];
+    float resultY = currentAcceleration.y - _accel[1];
+    float resultZ = currentAcceleration.z - _accel[2];
+    float filteredMagnitude = floor(sqrt(resultX * resultX + resultY * resultY + resultZ * resultZ) * 100) / 100;
+    
+    if (filteredMagnitude > _maxAcceleration) {
+        _maxAcceleration = filteredMagnitude;
+    }
+    
+    if (_maxAcceleration > .2) {
+        [_label setString:[NSString stringWithFormat:@"BANG! %.2f", _maxAcceleration]];
+        if (!_bang) {
+            SimpleAudioEngine *ae = [SimpleAudioEngine sharedEngine];
+            [ae playBackgroundMusic:@"buzzer.mp3"];
+            _bang = YES;
+        }
+    } else {
+        [_label setString:[NSString stringWithFormat:@"%.2f, %.2f", filteredMagnitude, _maxAcceleration]];
+    }
+    
+    
+    /*
+    float totalAcceleration = sqrtf((currentAcceleration.x * currentAcceleration.x) + (currentAcceleration.y * currentAcceleration.y) + (currentAcceleration.z * currentAcceleration.z));
     //NSLog(@"testing _accelerationFilter %@", _accelerationFilter);
     if (_accelerationFilter == nil) {
         //NSLog(@"nil");
@@ -114,25 +148,27 @@
     float resultX = currentAcceleration.x - _accel[0];
     float resultY = currentAcceleration.y - _accel[1];
     float resultZ = currentAcceleration.z - _accel[2];
-    //totalAcceleration = sqrtf((resultX * resultX + resultY * resultY + resultZ * resultZ));
-    totalAcceleration = resultX;
-    NSLog(@"%.4f %.4f %.4f %.4f", resultX, resultY, resultZ, totalAcceleration);
+    totalAcceleration = sqrt((resultX * resultX + resultY * resultY + resultZ * resultZ));
+    //totalAcceleration = resultX;
+    //NSLog(@"%.4f %.4f %.4f %.4f", resultX, resultY, resultZ, totalAcceleration);
     
     //_velocity += floorf(totalAcceleration);
     //_distance += _velocity;
     
     //velocity[i] = (acceleration[i] + acceleration[i-1])/2 * interval + velocity[i-1] distance[i] = (velocity[i] + velocity[i-1])/2 * interval + distance[i-1]
     
-    if (floorf(totalAcceleration * 100) / 100 > _maxAcceleration) {
+    if (floor(totalAcceleration * 100) / 100 > _maxAcceleration) {
         _maxAcceleration = floorf(totalAcceleration * 100) / 100;
     }
-    if (floorf(totalAcceleration * 100) / 100 < _minAcceleration) {
+    if (floor(totalAcceleration * 100) / 100 < _minAcceleration) {
         _minAcceleration = floorf(totalAcceleration * 100) / 100;
     }
     
     //[_label setString:[NSString stringWithFormat:@"roll:%.2f pitch:%.2f yaw:%.2f", roll, pitch, yaw]];
     [_label setString:[NSString stringWithFormat:@"acc:%.2f, floorAcc:%.2f, min:%.2f, max:%.2f, d:%.2f", totalAcceleration, floorf(totalAcceleration * 100) / 100, _minAcceleration, _maxAcceleration, _distance]];
     //_label.rotation = CC_RADIANS_TO_DEGREES(yaw);
+     
+     */
 }
 
 - (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
@@ -144,6 +180,11 @@
     _minAcceleration = 0;
     _distance = 0;
     _velocity = 0;
+    _bang = NO;
+    SimpleAudioEngine *ae = [SimpleAudioEngine sharedEngine];
+    [ae stopBackgroundMusic];
+    
+    [_soundEngine playSound:1 sourceGroupId:0 pitch:1.0f pan:0.0f gain:1.0f loop:YES];
 }
 
 - (id)init
@@ -166,6 +207,8 @@
         }
         [self registerWithTouchDispatcher];
         [self scheduleUpdate];
+        
+        
         
 	}
 	return self;
