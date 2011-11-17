@@ -130,6 +130,7 @@
 		F71A8EC3146AA24800FEB601 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F71A8EC2146AA24800FEB601 /* IntroLayer.m */; };
 		F71A8ED7146AB87600FEB601 /* GameHUDLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = F71A8ED6146AB87600FEB601 /* GameHUDLayer.m */; };
 		F71A8EF5146C129900FEB601 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71A8EF2146C0F9F00FEB601 /* CoreMotion.framework */; };
+		F721EFBD1475659800BC2698 /* beep-3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F721EFBC1475659800BC2698 /* beep-3.mp3 */; };
 		F7CD6BCC147412F100C00759 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7CD6BCB147412F100C00759 /* CoreAudio.framework */; };
 		F7CD6BD21474195400C00759 /* bg_music_loop.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F7CD6BD11474195300C00759 /* bg_music_loop.mp3 */; };
 		F7CD6BD614741DBB00C00759 /* buzzer.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = F7CD6BD514741DBB00C00759 /* buzzer.mp3 */; };
@@ -386,6 +387,7 @@
 		F71A8ED5146AB87600FEB601 /* GameHUDLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameHUDLayer.h; sourceTree = "<group>"; };
 		F71A8ED6146AB87600FEB601 /* GameHUDLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameHUDLayer.m; sourceTree = "<group>"; };
 		F71A8EF2146C0F9F00FEB601 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		F721EFBC1475659800BC2698 /* beep-3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "beep-3.mp3"; sourceTree = "<group>"; };
 		F7CD6BCB147412F100C00759 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		F7CD6BD11474195300C00759 /* bg_music_loop.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bg_music_loop.mp3; sourceTree = "<group>"; };
 		F7CD6BD514741DBB00C00759 /* buzzer.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = buzzer.mp3; sourceTree = "<group>"; };
@@ -893,6 +895,7 @@
 		F71A8ECE146AA50600FEB601 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F721EFBC1475659800BC2698 /* beep-3.mp3 */,
 				F7CD6BD514741DBB00C00759 /* buzzer.mp3 */,
 				F7CD6BD11474195300C00759 /* bg_music_loop.mp3 */,
 			);
@@ -996,6 +999,7 @@
 				F71A8D61146A829200FEB601 /* iTunesArtwork in Resources */,
 				F7CD6BD21474195400C00759 /* bg_music_loop.mp3 in Resources */,
 				F7CD6BD614741DBB00C00759 /* buzzer.mp3 in Resources */,
+				F721EFBD1475659800BC2698 /* beep-3.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

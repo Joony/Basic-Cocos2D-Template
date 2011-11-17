@@ -92,11 +92,11 @@
     } else {
         //self.referenceFrame = currentAttitude;
     }
-    float roll = currentAttitude.roll;
-    float pitch = currentAttitude.pitch;
-    float yaw = currentAttitude.yaw;
+    //float roll = currentAttitude.roll;
+    //float pitch = currentAttitude.pitch;
+    //float yaw = currentAttitude.yaw;
     
-    float magnitude = sqrtf(currentAcceleration.x * currentAcceleration.x + currentAcceleration.y * currentAcceleration.y + currentAcceleration.z * currentAcceleration.z);
+    //float magnitude = sqrtf(currentAcceleration.x * currentAcceleration.x + currentAcceleration.y * currentAcceleration.y + currentAcceleration.z * currentAcceleration.z);
     
     _accel[0] = currentAcceleration.x * kFilteringFactor + _accel[0] * (1.0f - kFilteringFactor);
     _accel[1] = currentAcceleration.y * kFilteringFactor + _accel[1] * (1.0f - kFilteringFactor);
@@ -113,15 +113,27 @@
     if (_maxAcceleration > .2) {
         [_label setString:[NSString stringWithFormat:@"BANG! %.2f", _maxAcceleration]];
         if (!_bang) {
-            SimpleAudioEngine *ae = [SimpleAudioEngine sharedEngine];
-            [ae playBackgroundMusic:@"buzzer.mp3"];
+            _buzzer = [[SimpleAudioEngine sharedEngine] playEffect:@"buzzer.mp3"];
             _bang = YES;
         }
     } else {
         [_label setString:[NSString stringWithFormat:@"%.2f, %.2f", filteredMagnitude, _maxAcceleration]];
     }
     
+    //[_soundEngine stopSound:_bg];
+    //_bg = [_soundEngine playSound:1 sourceGroupId:kASC_Right pitch:1.0f pan:0.0f gain:1.0f loop:NO];
     
+    
+    //NSLog(@"%@", [[_soundEngine soundSourceForSound:1 sourceGroupId:kASC_Right] isPlaying] ? @"YES" : @"NO");
+    //_bg = [_soundEngine playSound:1 sourceGroupId:kASC_Right pitch:1.0f pan:0.0f gain:1.0f loop:NO];
+    
+    if (!_bang) {
+        //NSLog(@"%@", [_sound1 isPlaying] ? @"YES" : @"NO");
+        if (![_sound1 isPlaying]) {
+            _sound1.pitch = (3.0f / 2.0f) * filteredMagnitude + 0.5f;
+            [_sound1 play];
+        }
+    }
     /*
     float totalAcceleration = sqrtf((currentAcceleration.x * currentAcceleration.x) + (currentAcceleration.y * currentAcceleration.y) + (currentAcceleration.z * currentAcceleration.z));
     //NSLog(@"testing _accelerationFilter %@", _accelerationFilter);
@@ -181,10 +193,17 @@
     _distance = 0;
     _velocity = 0;
     _bang = NO;
-    SimpleAudioEngine *ae = [SimpleAudioEngine sharedEngine];
-    [ae stopBackgroundMusic];
     
-    [_soundEngine playSound:1 sourceGroupId:0 pitch:1.0f pan:0.0f gain:1.0f loop:YES];
+    //[_soundEngine stopSound:_bg];
+    //_bg = [_soundEngine playSound:1 sourceGroupId:kASC_Right pitch:1.0f pan:0.0f gain:1.0f loop:NO];
+    
+    [[SimpleAudioEngine sharedEngine] stopEffect:_buzzer]; 
+    [_sound1 play];
+}
+
+- (void)cdAudioSourceDidFinishPlaying:(CDLongAudioSource *)audioSource {
+    //[_rightChannel play];
+    NSLog(@"finished");
 }
 
 - (id)init
@@ -208,8 +227,29 @@
         [self registerWithTouchDispatcher];
         [self scheduleUpdate];
         
+        /*
+        _soundEngine = [CDAudioManager sharedManager].soundEngine;
+        NSArray *sourceGroups = [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:31], nil];
+        [_soundEngine defineSourceGroups:sourceGroups];
+        [CDAudioManager initAsynchronously:kAMM_FxPlusMusic];
+        NSMutableArray *loadRequests = [[[NSMutableArray alloc] init] autorelease];
+        [loadRequests addObject:[[[CDBufferLoadRequest alloc] init:1 filePath:@"beep-3.mp3"] autorelease]];
+        [_soundEngine loadBuffersAsynchronously:loadRequests];
+        _bg = [_soundEngine playSound:1 sourceGroupId:kASC_Right pitch:1.0f pan:0.0f gain:1.0f loop:NO];
+        */
         
+        /*
+        _rightChannel = [[CDAudioManager sharedManager] audioSourceForChannel:kASC_Right];
+        _rightChannel.delegate = self;
+        [_rightChannel load:@"beep-3.mp3"];
+        [_rightChannel play];
+         */
         
+        _sound1 = [[[SimpleAudioEngine sharedEngine] soundSourceForFile:@"beep-3.mp3"] retain];
+        [_sound1 play];
+        
+        //CCLOG(@"Sound 1 duration %0.4f",sound1.durationInSeconds);
+        //[self schedule:@selector(tick:)];
 	}
 	return self;
 }

@@ -12,7 +12,7 @@
 #import "CocosDenshion.h"
 #import "SimpleAudioEngine.h"
 
-@interface GameLayer : CCLayer
+@interface GameLayer : CCLayer <CDLongAudioSourceDelegate>
 {
     GameHUDLayer *_hud;
     CCLabelTTF *_label;
@@ -31,6 +31,11 @@
     BOOL _bang;
     CDSoundEngine *_soundEngine;
     ALuint _bg;
+    
+    CDLongAudioSource *_rightChannel;
+    
+    CDSoundSource *_sound1;
+    ALuint _buzzer;
 }
 
 @property (nonatomic, retain) GameHUDLayer *hud;
